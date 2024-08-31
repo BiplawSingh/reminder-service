@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const { PORT } = require('./config/serverConfig');
 
 const TicketController = require('./controllers/ticket-controller');
+const jobs = require('./utils/job');
 
 const setupAndStartServer = () => {
     const app = express();
@@ -14,6 +15,7 @@ const setupAndStartServer = () => {
 
     app.listen(PORT, () => {
         console.log(`Server started on port ${PORT}`);
+        jobs();
     });
 }
 
